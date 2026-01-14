@@ -1,0 +1,212 @@
+/* =========================================================
+   Tailwind v4 entry
+   ========================================================= */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+
+/* =========================================================
+   THEME TOKENS (Tailwind v4 source of truth)
+   ========================================================= */
+@theme {
+  /* ---------- Colors ---------- */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(0 0% 8%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 0% 8%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(0 0% 8%);
+
+  --color-primary: hsl(45 100% 51%);
+  --color-primary-foreground: hsl(0 0% 8%);
+
+  --color-secondary: hsl(0 0% 96%);
+  --color-secondary-foreground: hsl(0 0% 25%);
+
+  --color-muted: hsl(0 0% 96%);
+  --color-muted-foreground: hsl(0 0% 45%);
+
+  --color-accent: hsl(199 89% 48%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  --color-coral: hsl(16 100% 66%);
+  --color-coral-foreground: hsl(0 0% 100%);
+
+  --color-mint: hsl(158 64% 52%);
+  --color-mint-foreground: hsl(0 0% 8%);
+
+  --color-lavender: hsl(262 83% 68%);
+  --color-lavender-foreground: hsl(0 0% 100%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-border: hsl(0 0% 90%);
+  --color-input: hsl(0 0% 90%);
+  --color-ring: hsl(45 100% 51%);
+
+  /* ---------- Sidebar ---------- */
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
+  --color-sidebar-primary: hsl(240 5.9% 10%);
+  --color-sidebar-primary-foreground: hsl(0 0% 98%);
+  --color-sidebar-accent: hsl(240 4.8% 95.9%);
+  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --color-sidebar-border: hsl(220 13% 91%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* ---------- Radius ---------- */
+  --radius-lg: 1rem;
+  --radius-md: calc(1rem - 2px);
+  --radius-sm: calc(1rem - 4px);
+
+  /* ---------- Shadows ---------- */
+  --shadow-soft: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
+  --shadow-elevated: 0 20px 50px -12px hsl(0 0% 0% / 0.15);
+  --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.1);
+
+  /* ---------- Transitions ---------- */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---------- Animations ---------- */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  --animate-slide-in: slide-in 0.7s ease-out forwards;
+  --animate-scale-in: scale-in 0.5s ease-out forwards;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+.dark {
+  --color-background: hsl(0 0% 6%);
+  --color-foreground: hsl(0 0% 95%);
+
+  --color-card: hsl(0 0% 10%);
+  --color-card-foreground: hsl(0 0% 95%);
+
+  --color-popover: hsl(0 0% 6%);
+  --color-popover-foreground: hsl(0 0% 95%);
+
+  --color-secondary: hsl(0 0% 15%);
+  --color-secondary-foreground: hsl(0 0% 85%);
+
+  --color-muted: hsl(0 0% 18%);
+  --color-muted-foreground: hsl(0 0% 55%);
+
+  --color-border: hsl(0 0% 20%);
+  --color-input: hsl(0 0% 20%);
+  --color-ring: hsl(45 100% 55%);
+
+  --color-sidebar-background: hsl(240 5.9% 10%);
+  --color-sidebar-foreground: hsl(240 4.8% 95.9%);
+  --color-sidebar-accent: hsl(240 3.7% 15.9%);
+  --color-sidebar-border: hsl(240 3.7% 15.9%);
+}
+
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+* {
+  border-color: hsl(var(--color-border));
+}
+
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
+
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.transition-smooth {
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.transition-bounce {
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.text-gradient-wave {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--color-accent)) 0%,
+    hsl(var(--color-coral)) 50%,
+    hsl(var(--color-primary)) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* =========================================================
+   DECORATIVE SHAPES
+   ========================================================= */
+.shape-circle {
+  border-radius: 9999px;
+}
+
+.shape-arch {
+  border-radius: 100px 100px 0 0;
+}
