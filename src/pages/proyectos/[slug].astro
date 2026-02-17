@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
+import { projectsData } from '../../lib/projects-data';
+
+// Genera todas las rutas estáticas en build
+export async function getStaticPaths() {
+  return projectsData.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+if (!project) {
+  // Si algo falla, redirige al home (opcional); normalmente no se llega aquí
+  return Astro.redirect('/');
+}
+
+// Utilidades
+const categoryLabel = (category) => {
+  switch (category) {
+    case 'ux-ui': return 'Diseño';
+    case 'frontend': return 'Código';
+    case 'both': return 'Diseño + Código';
+    default: return category;
+  }
+};
+---
+
+<Layout>
+  <!-- Header (hidratar si tiene interactividad) -->
+  <Header client:visible />
+
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <a href="/#work" class="inline-flex items-center gap-2 text-gray-600 hover:text-black mb-8 transition-colors">
+          <!-- ArrowLeft icon simple -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+          Volver a proyectos
+        </a>
+
+        <div class="flex items-start gap-6 mb-8">
+          {project.icon && (
+            <div class="flex items-center justify-center w-20 h-20 rounded-2xl flex-shrink-0" style={`background-color:${project.icon.bg}`}>
+              <span class="text-4xl font-bold text-white">{project.icon.letter}</span>
+            </div>
+          )}
+          <div>
+            <h1 class="text-5xl md:text-6xl font-bold text-black mb-4">{project.title}</h1>
+            <p class="text-xl text-gray-600 leading-relaxed">{project.description}</p>
+          </div>
+        </div>
+
+        <!-- Chips -->
+        {project.tags?.length && (
+          <div class="flex flex-wrap gap-4 mb-8">
+            {project.tags.map((tag) => (
+              <span class="px-5 py-2 bg-white border border-gray-200 text-gray-800 font-medium rounded-full">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <!-- Meta -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+          <div>
+            <p class="text-gray-500 mb-1">Año</p>
+            <p class="font-semibold text-black">{project.year}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1">Rol</p>
+            <p class="font-semibold text-black">{project.role}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1">Categoría</p>
+            <p class="font-semibold text-black">{categoryLabel(project.category)}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Imagen principal -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img src={project.image || "/placeholder.svg"} alt={project.title} class="w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Descripción -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-black mb-8">Descripción del proyecto</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-600 leading-relaxed text-lg whitespace-pre-line">{project.fullDescription}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge & Solution -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">El desafío</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.challenge}</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">La solución</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Imágenes adicionales -->
+    {project.images && project.images.length > 1 && (
+      <section class="py-16">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-8">
+            {project.images.slice(1).map((img, index) => (
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <img src={img || "/placeholder.svg"} alt={`${project.title} - Image ${index + 2}`} class="w-full h-auto" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Resultados -->
+    {project.results?.length && (
+      <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-black mb-8">Resultados</h2>
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#FDB913] flex items-center justify-center">
+                  <span class="text-black font-bold">✓</span>
+                </div>
+                <p class="text-gray-600 text-lg leading-relaxed pt-1">{result}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- Volver -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-2xl font-bold text-black mb-6">Ver más proyectos</h3>
+        <a href="/#work" class="inline-flex items-center gap-2 px-8 py-4 bg-[#FDB913] text-black font-semibold rounded-full hover:bg-[#FDB913]/90 transition-colors">
+          Volver al portafolio
+          <!-- ExternalLink icon simple -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path d="M15 3h6v6" />
+            <path d="M10 14L21 3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

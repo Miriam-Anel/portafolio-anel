@@ -1,13 +1,7 @@
-/* =========================================================
-   Tailwind v4 entry
-   ========================================================= */
+
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
-
-/* =========================================================
-   THEME TOKENS (Tailwind v4 source of truth)
-   ========================================================= */
 @theme {
   /* ---------- Colors ---------- */
   --color-background: hsl(0 0% 100%);
@@ -117,8 +111,9 @@
    BASE STYLES
    ========================================================= */
 * {
-  border-color: hsl(var(--color-border));
+  border-color: var(--color-border);
 }
+
 
 body {
   background-color: hsl(var(--color-background));
