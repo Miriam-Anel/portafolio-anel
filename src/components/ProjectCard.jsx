@@ -29,7 +29,7 @@ const ProjectCard = ({ project, index = 0 }) => {
   return (
     <a
       href={`/proyectos/${project.slug}`}
-      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded-3xl"
+      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded-3xl shadow-card"
       aria-label={`Ver caso de estudio de ${project.title}`}
     >
       <article
@@ -37,16 +37,16 @@ const ProjectCard = ({ project, index = 0 }) => {
         style={{ animationDelay: `${0.1 * index}s` }}
       >
         {/* Imagen + badge flotante */}
-        <div className="relative px-4 pt-4">
+        <div className="relative ">
           <span className="absolute top-6 left-6 z-10 inline-flex items-center rounded-full bg-muted/90 backdrop-blur px-3 py-1 text-sm font-medium text-foreground border border-border">
             {categoryLabel}
           </span>
 
-          <div className="relative rounded-2xl overflow-hidden">
+          <div className="relative overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-64 md:h-72 object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              className="w-full h-64 md:h-80 object-cover group-hover:scale-[1.02] transition-transform duration-700"
               loading="lazy"
             />
           </div>

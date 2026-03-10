@@ -19,30 +19,29 @@ const Projects = () => {
       : projectsData.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="proyectos" className="py-24 md:py-32 md:px-32 bg-background">
+    <section id="proyectos" className="py-24 md:py-32 md:px-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="w-full mb-16 flex-1 justify-center text-center ">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-up">
-            Featured projects
+            Mis proyectos
           </h2>
           <p className="text-lg text-muted-foreground animate-fade-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
-            Find out about my works: read through my case studies, have a look at 
-            final designs and try out prototypes I've built.
+            Descubre mis trabajos: lee mis casos prácticos, echa un vistazo a los diseños finales y prueba los prototipos que he creado.
           </p>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-3 mb-12 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          <div className="flex flex-wrap items-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-12">
           {filters.map((filter) => (
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               className={`px-6 py-3 rounded-full font-medium transition-all ${
                 activeFilter === filter.id
-                  ? "bg-[#1a1a1a] text-white"
-                  : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                  ? "bg-primary text-primary-foreground shadow-soft"
+                  : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
               }`}
             >
               {filter.label}

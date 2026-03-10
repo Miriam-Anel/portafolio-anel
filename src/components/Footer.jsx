@@ -10,11 +10,11 @@ const Footer = () => {
               <span className="font-serif text-sm font-bold text-primary-foreground">M</span>
             </div>
             <p className="text-sm">
-              © {currentYear} María. Diseñado y desarrollado con pasión.
+              © {currentYear} Anel. Diseñado y desarrollado con pasión.
             </p>
           </div>
           <p className="text-sm">
-            Disponible para proyectos freelance
+            ¡Gracias por tu interes en mi trabajo!
           </p>
         </div>
       </div>

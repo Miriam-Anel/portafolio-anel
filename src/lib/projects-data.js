@@ -1,7 +1,8 @@
+
 export const projectsData = [
   {
-    slug: "finance-dashboard",
-    title: "Finance Dashboard",
+    slug: "xperience",
+    title: "Xperience",
     shortDescription: "Dashboard analítico desarrollado con React y TypeScript. Visualización de datos en tiempo real.",
     description: "Dashboard analítico desarrollado con React y TypeScript. Visualización de datos en tiempo real.",
     fullDescription: `Este proyecto consistió en diseñar y desarrollar un dashboard financiero completo para una startup fintech. El objetivo era crear una herramienta intuitiva que permitiera a los usuarios visualizar sus datos financieros en tiempo real con gráficos interactivos y métricas clave.
@@ -28,8 +29,8 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     ],
   },
   {
-    slug: "ecommerce-redesign",
-    title: "E-commerce Redesign",
+    slug: "adryoLanding",
+    title: "Adryo Landing Page",
     shortDescription:
       "Case study completo de rediseño UX. Mejora del 40% en conversión mediante optimización del flujo.",
     description: "Case study completo de rediseño UX. Mejora del 40% en conversión mediante optimización del flujo.",
@@ -55,20 +56,21 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     ],
   },
   {
-    slug: "portfolio-fotografico",
-    title: "Portfolio Fotográfico",
-    shortDescription: "Sitio web minimalista con animaciones fluidas y galería dinámica. Optimizado para rendimiento.",
-    description: "Sitio web minimalista con animaciones fluidas y galería dinámica. Optimizado para rendimiento.",
-    fullDescription: `Desarrollo de un portfolio fotográfico minimalista con enfoque en la presentación visual de imágenes de alta calidad. El sitio incluye animaciones fluidas, galería dinámica y optimización de rendimiento.`,
-    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=800&q=80",
+    slug: "adryoBlog",
+    title: "Adryo Blog",
+    shortDescription: "“Blog renovado que ofrece contenido inmobiliario, financiero y tecnológico con información práctica, estructurada y fácil de navegar para profesionales del sector",
+    description: "Blog rediseñado y desarrollado con una experiencia simple y moderna, enfocado en artículos del sector inmobiliario.",
+    fullDescription: `El blog inmobiliario había sido construido como una solución rápida y sin bases sólidas de UX o arquitectura de información. Aunque incluía categorías, estas no filtraban correctamente y la navegación no guiaba al usuario entre temas relacionados. Además, la interfaz no reflejaba la identidad visual actual del producto, lo que generaba una experiencia desconectada del resto de la plataforma. La falta de experiencia en su implementación inicial derivó en funciones incompletas y comportamientos inconsistentes. El proyecto se centró en reorganizar la estructura, mejorar la navegación y unificar el diseño para crear una experiencia más clara, moderna y coherente.`,
+    image: "/images/blogAdryo.png",
     icon: { letter: "P", bg: "#8B5CF6" },
-    category: "Front-end",
-    tags: ["Next.js", "Framer Motion", "CSS"],
-    year: "2023",
-    role: "Front-end Developer",
-    challenge: "Crear un sitio web que muestre fotografías de alta resolución sin comprometer la velocidad de carga.",
+    category: "Design + Dev",
+    tags: ["Figma", "Astro", "React JS", "Tailwind CSS","+ 1"],
+    tools: "Figma, Astro, React JS, Tailwind CSS, consumo de API para contenido dinámico",
+    role: "UX/UI Design + Front-end Development",
+    year:"2025",
+    challenge: "Mi reto fue convertir un blog básico en una experiencia moderna y coherente, con un diseño claro y un desarrollo técnico más eficiente y escalable.",
     solution:
-      "Implementé lazy loading, optimización de imágenes con Next.js Image, y animaciones con Framer Motion para crear una experiencia fluida.",
+      "Rediseñar el blog busca mejorar la usabilidad y facilitar que los usuarios exploren el contenido inmobiliario de forma simple, útil y coherente con la identidad visual del producto.",
     results: [
       "Tiempo de carga inferior a 2 segundos",
       "100/100 en Lighthouse Performance",
@@ -80,8 +82,8 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     ],
   },
   {
-    slug: "booking-system",
-    title: "Booking System",
+    slug: "dealider",
+    title: "Dealider App",
     shortDescription:
       "Aplicación web completa para gestión de reservas. Diseño de interfaz y desarrollo del front-end.",
     description: "Aplicación web completa para gestión de reservas. Diseño de interfaz y desarrollo del front-end.",
@@ -107,8 +109,8 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     ],
   },
   {
-    slug: "knowlex",
-    title: "Knowlex",
+    slug: "emailTemplates",
+    title: "Email templates",
     shortDescription:
       "End to end application for Edtech industry. A platform where to exchange knowledge for other knowledge.",
     description:
@@ -128,33 +130,6 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     images: [
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
       "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-    ],
-  },
-  {
-    slug: "accessible-travel",
-    title: "Accessible Travel",
-    shortDescription:
-      "Adding a feature to manage air travel Special Assistance. Improving accessibility for all users.",
-    description: "Adding a feature to manage air travel Special Assistance. Improving accessibility for all users.",
-    fullDescription: `Proyecto enfocado en mejorar la accesibilidad en la industria de viajes aéreos. Diseñé y desarrollé una funcionalidad para gestionar asistencia especial para pasajeros con necesidades específicas.`,
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
-    icon: { letter: "A", bg: "#0EA5E9" },
-    category: "UX/UI Design",
-    tags: ["Accessibility", "User Research", "Figma"],
-    year: "2024",
-    role: "UX/UI Designer",
-    challenge:
-      "Crear una experiencia que permita a usuarios con diferentes necesidades solicitar y gestionar asistencia especial de manera fácil.",
-    solution:
-      "Diseñé un flujo simplificado con opciones claras, iconografía accesible, y cumplimiento de estándares WCAG 2.1 AA.",
-    results: [
-      "100% cumplimiento con WCAG 2.1 AA",
-      "85% de reducción en llamadas de soporte",
-      "Feedback positivo del 96% de usuarios",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
-      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80",
     ],
   },
 ]
