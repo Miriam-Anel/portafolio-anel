@@ -4,7 +4,6 @@ import Header from '../../components/Header.jsx';
 import Footer from '../../components/Footer.jsx';
 import { projectsData } from '../../lib/projects-data';
 import Button from "@/components/ui/button.jsx";
-import image from "../../assets/images/blogAdryo.png"
 
 const slug = 'adryoBlog';
 const project = projectsData.find((p) => p.slug === slug);
@@ -121,8 +120,63 @@ const categoryLabel = (category) => {
       </div>
     </section>
 
-    <section class="w-full bg-foreground py-6 flex justify-center ">
-      <p class="text-4xl font-bold text-secondary">Problemas detectados</p>
+    <section class="w-full bg-foreground py-10 flex justify-center ">
+      <p class="text-3xl md:text-4xl font-bold text-secondary">Problemas detectados</p>
+    </section>
+
+    <section class="py-16 bg-gray-50 max-w-6xl mx-auto px-6">
+      <div class="grid gap-12 md:grid-cols-[3fr_2fr] items-start">
+        <div>
+          <!-- <h3 class="text-3xl font-bold text-black mb-4">Problemas a solucionar</h3> -->
+          <div class="space-y-12">
+            <article>
+              <p class="text-lg md:text-xl font-medium tracking-tight text-black">
+                Problemas de usabilidad 
+              </p>
+              <p class="mt-2 text-lg leading-7 font-light text-black">
+                Los cambios entre vistas eran poco evidentes y la presentación de los artículos no facilitaba recorrer, comparar o decidir qué leer. Como resultado, la experiencia se sentía plana y poco intuitiva.
+              </p>
+            </article>
+
+            <article>
+              <p class="text-lg md:text-xl font-medium tracking-tight text-black">
+                Problemas de arquitectura de información 
+              </p>
+              <p class="mt-2 text-lg leading-7 font-light text-black">
+                Las categorías no filtraban artículos relacionados y
+                repetían las mismas publicaciones, lo que rompía la lógica de organización del contenido y afectaba la relevancia de los resultados mostrados.
+              </p>
+            </article>
+            <article>
+              <p class="text-lg md:text-xl font-medium tracking-tight text-black">
+                Problemas de interfaz de usuario 
+              </p>
+              <p class="mt-2 text-lg leading-7 font-light text-black">
+                La interfaz presentaba un diseño básico que no reflejaba la identidad visual actual del producto principal. El blog se percibia como un espacio separado y sin continuidad.
+              </p>
+            </article>
+            <article>
+              <p class="text-lg md:text-xl font-medium tracking-tight text-black">
+                Problemas de percepción y modernidad 
+              </p>
+              <p class="mt-2 text-lg leading-7 font-light text-black">
+                El diseño del blog no seguía estándares actuales de contenido editorial, lo que generaba una percepción de producto desactualizado
+                y restaba valor al contenido que ofrecía.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="flex justify-center md:justify-end md:items-center  md:h-full">
+          <img
+            src="/images/searchProblems.png"
+            alt="image"
+            class="max-w-[16rem] md:max-w-[18rem] w-full h-auto object-contain"
+            loading="lazy"
+          />  
+        </div>
+      </div>
     </section>
     <!-- Imágenes adicionales -->
     {project.images && project.images.length > 1 && (
