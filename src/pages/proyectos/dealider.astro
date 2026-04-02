@@ -1,0 +1,490 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
+import { projectsData } from '../../lib/projects-data';
+import Button from "@/components/ui/button.jsx";
+import Carousel from "@/components/ui/Carousel.jsx"
+
+const slug = 'dealider';
+const project = projectsData.find((p) => p.slug === slug);
+
+if (!project) {
+  return Astro.redirect('/');
+}
+
+
+// Utilidades
+const categoryLabel = (category) => {
+  switch (category) {
+    case 'ux-ui': return 'Diseño';
+    case 'frontend': return 'Código';
+    case 'both': return 'Diseño + Código';
+    default: return category;
+  }
+};
+
+
+const screens = [
+  "/images/blogAdryo/homeScreen.png",
+  "/images/blogAdryo/CategoryPage.png",
+  "/images/blogAdryo/ArticlePage.png",
+];
+
+---
+
+<Layout>
+  <!-- Header (hidratar si tiene interactividad) -->
+  <Header client:visible />
+
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <a href="/#work" class="inline-flex items-center gap-2 text-gray-600 hover:text-black mb-8 transition-colors">
+          <!-- ArrowLeft icon simple -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+          Volver a proyectos
+        </a>
+
+        <div class="flex items-center gap-6 mb-4">
+          <div class="flex flex-wrap items-center justify-center " >
+            <h1 class="text-5xl md:text-6xl font-bold text-black mb-4">{project.title}</h1>
+            <p class="text-xl text-gray-600 leading-relaxed text-center">{project.description}</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-8">
+          <Button
+            variant="default"
+            size="lg"
+            onClick={() => { window.location.href = 'https://blog.adryo.com.mx'; }}
+            className="rounded-full px-8"
+          >
+            Ver prototipo
+          </Button>
+        </div>
+
+        <!-- Imagen principal -->
+    <section class="py-8 mb-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img src={project.image || "/placeholder.svg"} alt={project.title} class="w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+    </section>
+    
+        <!-- Chips -->
+        <!-- {project.tags?.length && (
+          <div class="flex flex-wrap justify-center gap-4 mb-8 mt-8">
+            {project.tags.map((tag) => (
+              <span class="px-5 py-2 bg-white border border-gray-200 text-gray-800 font-medium rounded-full">{tag}</span>
+            ))}
+          </div>
+        )} -->
+
+        <!-- Meta -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm px-16">
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Año</p>
+            <p class="font-semibold text-black text-base">{project.year}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Rol</p>
+            <p class="font-semibold text-black text-base">{project.role}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Herramientas</p>
+            <p class="font-semibold text-black text-base">{project.tools}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descripción -->
+    <section class="py-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-black mb-8">Descripción del proyecto</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-600 leading-relaxed text-lg whitespace-pre-line">{project.fullDescription}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge & Solution -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">El desafío</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.challenge}</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">Objetivo / Meta</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <section class="w-full bg-foreground py-10 px-10 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl font-bold text-secondary">De web a mobile</p>
+    </section>
+
+    <section class="md:pt-12 md:pb-0 py-10 bg-gray-50">
+      <div class="max-w-4xl mx-auto md:px-24 px-6">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> DEFINIR </p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8 px-10 text-center">Priorizando funcionalidades</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="mt-2 text-lg leading-7  font-light text-black"> Dado que la aplicación sera utilizada principalmente por <strong class="font-bold">vendedores</strong>, fue necesario evaluar qué funcionalidades realmente apoyaban su operación diaria.
+La priorización <strong class="font-bold">se enfocó en acciones recurrentes y de consulta rápida</strong>, mientras que funciones de configuración y administración permanecieron en la versión web.</p>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24">
+            <img
+              src="/images/dealider/tabelFlow.png"
+              alt="image"
+              class="w-full md:w-[600px] h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="py-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6 ">
+        <h2 class="text-4xl font-medium text-black mb-8  text-center">Analizando el mercado</h2>
+        <div class="prose prose-lg max-w-none px-0 md:px-10 ">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Dado que las plataformas de escritorio no se adaptan directamente a mobile, comparé tres aplicaciones orientadas a vendedores que resuelven tareas comerciales desde dispositivos móviles. El objetivo fue entender cómo adaptan funcionalidades originalmente complejas a pantallas pequeñas tales como:</p>
+          <ul class="list-disc md:pl-10 pl-6 space-y-1 text-left mt-5"> 
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Navegación principal y secundaria</p>
+                <!-- <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Durante el desarrollo del proyecto me di cuenta que no se tenia contemplado donde se crearían u editarian los artículos, por eso un sistema interno
+                    ayudaría a escalar el contenido y reducir la dependencia de procesos manuales.
+                  </li>
+                </ul> -->
+              </li>
+
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Acceso a acciones clave del vendedor</p>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Organización de información dentro de cada pantalla</p>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Separación entre tareas operativas y de configuración</p>
+              </li>
+            </ul> 
+        </div>
+        <div class="grid grid-cols-3 gap-10 text-sm px-2 md:px-16 mt-10 text-center">
+          <div>
+            <div class="md:h-[100px] h-[70px]">
+              <img
+                src="/images/dealider/HubLogo.png"
+                alt="image"
+                class="mx-auto md:w-[100px] w-[70px] h-auto"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-black mt-2 text-base">HubSpot CRM </p>
+          </div>
+          <div>
+            <div class="md:h-[100px] h-[70px]">
+              <img
+                src="/images/dealider/SalesLogo.png"
+                alt="image"
+                class="mx-auto md:w-[100px] w-[70px] h-auto"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-black mt-2 text-base">Salesforce</p>
+          </div>
+          <div>
+            <div class="md:h-[100px] h-[70px]">
+              <img
+                src="/images/dealider/PipeLogo.png"
+                alt="image"
+                class="mx-auto md:w-[100px] w-[70px] h-auto"
+                loading="lazy"
+              />
+            </div>
+            
+            <p class="text-black mt-2 text-base">Pipedrive</p>
+          </div>
+        </div>
+
+        <h2 class="text-xl font-medium text-black mt-10  pl-10">Ideas clave</h2>
+        <div class="prose prose-lg max-w-none px-0 md:px-10  ">
+          <ul class="list-disc md:pl-10 pl-6 space-y-1 text-left mt-5 mb-10"> 
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Las funciones de configuración y administración suelen trasladarse a pantallas secundarias para no saturar la experiencia principal.</p>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">La navegación se mantiene simple y constante, priorizando pocas secciones de alto valor.</p>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Las acciones más frecuentes del vendedor se destacan visualmente y se mantienen siempre accesibles.</p>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">No toda la información está visible al mismo tiempo: el contenido se presenta de forma progresiva según la tarea.</p>
+              </li>
+            </ul> 
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- <section class="pb-20">
+      <Carousel client:load images={screens}  autoPlay={true} interval={6000}/>
+    </section> -->
+    
+    
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Interacciones más rápidas y enfocadas</p>
+    </section>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> Desarrollo</p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8  text-center">¿Cómo se organiza la app en mobile?</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Con base en la investigación y la priorización de funcionalidades, se reorganizó la estructura de la aplicación para mobile.</p>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+     <section class="pt-1 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h2 class="text-4xl font-medium text-black mb-8 mt-12  text-center">Flujos clave para el vendedor</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Los flujos mobile se adaptaron al ritmo de trabajo del vendedor, priorizando acciones rápidas, menos fricción y una interacción más directa.</p>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Dandole vida a la app</p>
+    </section>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h2 class="text-4xl font-medium text-black my-8 text-center">Wireframes</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Los wireframes permitieron aterrizar la experiencia mobile, enfocándose en la distribución del contenido, la claridad de las acciones y la simplicidad de cada pantalla.</p>
+        </div>
+        <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Un caso que genero debate fue la adaptación del "pipeline". Tras conversar con el equipo de desarrollo y analizar las limitaciones técnicas de la versión mobile, se optó por una solución alternativa que permitiera a los vendedores cambiar la etapa del lead directamente desde el listado de leads.</p>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6 ">
+        <div class=" grid md:flex justify-center items-center md:gap-3 gap-4">
+          <div class="flex justify-center md:justify-start md:items-start">
+            <img
+              src="/images/paint.png"
+              alt="image"
+              class="max-w-[10rem] md:w-[50px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          <h2 class="text-4xl font-medium text-black my-8">Elementos clave de la interfaz</h2>
+        </div>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Los wireframes permitieron aterrizar la experiencia mobile, enfocándose en la distribución del contenido, la claridad de las acciones y la simplicidad de cada pantalla.</p>
+        </div>
+        <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Un caso que genero debate fue la adaptación del "pipeline". Tras conversar con el equipo de desarrollo y analizar las limitaciones técnicas de la versión mobile, se optó por una solución alternativa que permitiera a los vendedores cambiar la etapa del lead directamente desde el listado de leads.</p>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Mantente informado sobre el sector inmobiliario y explora más contenido de manera clara dentro del blog.</p>
+    </section>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> ENTREGA</p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8  text-center">¿Cómo se transformó la experiencia del usuario en el blog?</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">El rediseño permitió resolver los principales puntos de fricción de los usuarios. El blog dejó de percibirse como un producto aislado y comenzó a integrarse de forma más natural con la identidad visual del producto principal, haciendo que la navegación, la exploración por categorías y el contenido fueran más claros.</p>
+        </div>
+        <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Además, esto permitió que los usuarios comprendan mejor dónde están y qué pueden explorar a continuación.  Como resultado, la experiencia del blog mejoro en términos de usabilidad y orientación, facilitando que los usuarios descubran y consuman contenido inmobiliario de manera más clara, ordenada y continua.</p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8 mt-12  text-center">Prototipo de alta fidelidad</h2>
+        <div class="flex justify-center mb-8">
+          <Button
+            variant="default"
+            onClick={() => { window.location.href = 'https://blog.adryo.com.mx'; }}
+            className="rounded-full px-12 py-3 text-lg"
+          >
+            Ver prototipo
+          </Button>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">¿Qué hacemos ahora?</p>
+    </section>
+
+    <section class="md:pt-16 md:pb-0 py-10 bg-gray-50">
+      <div class="max-w-6xl mx-auto md:px-24 px-6">
+        <div class=" grid md:flex md:justify-between md:gap-8 gap-4">
+          <div class="flex justify-center md:justify-start md:items-start">
+            <img
+              src="/images/dev.png"
+              alt="image"
+              class=" md:w-[1500px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">Despliegue e integración</h3>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> Dada la magnitud del rediseño y la cantidad de componentes involucrados, el trabajo requirió una planificación cuidadosa más allá del diseño de la experiencia. El proceso incluyó el desarrollo del blog, la implementación de mejoras en la interfaz y la creación de plantillas de correo para los usuarios, asegurando coherencia con el recorrido y la identidad del producto.</p>
+            <p class="mt-6 text-lg leading-7  font-light text-black"> Ahora en mi rol de front-end desarrolle el proyecto de forma paralela durante casi dos meses en coordinación con el backend para validar que la experiencia funcionara de manera adecuada. Aunque el rediseño y la implementación técnica fueron completados, el despliegue final no pudo concluirse debido a procesos y decisiones internas del proyecto ajenas a la ejecución del diseño.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h3 class="text-3xl font-bold text-black mb-4">Próximos pasos</h3>
+          <ul class="list-disc pl-6 space-y-4"> 
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Sistema interno de gestión de contenido</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Durante el desarrollo del proyecto me di cuenta que no se tenia contemplado donde se crearían u editarian los artículos, por eso un sistema interno
+                    ayudaría a escalar el contenido y reducir la dependencia de procesos manuales.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Control de permisos y roles</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Para tener el sistema interno que getionara los artículos se deberan definir los roles para mantener flujos internos ordenados y asegurar
+                    la calidad del contenido publicado.
+                  </li>
+                </ul>
+              </li>
+            </ul> 
+      </div>
+    </section>
+    <section class="w-full bg-foreground py-2 flex justify-center text-center">
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h3 class="text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
+          <ul class="space-y-6"> 
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> Una vez más se demostro la importancía de investigar a fondo antes de tomar decisiones. Los problemas que se solucionaron en este proyecto surgieron de decisiones apresuradas e improvisaciones que con el tiempo, generaron fricción y tuvieron un impacto directamente en la experiencia del usuario. Reforzo la idea de <strong class="font-bold">validar y reflexionar antes de ejecutar</strong></p>
+              </li>
+
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black">Cuando una parte del producto se siente fuera de lugar o desconectada del resto, afecta la percepción de calidad y solidez de la marca. Integrar el blog al ecosistema principal no solo fue una mejora estética, sino una <strong class="font-bold"> decisión clave para generar una experiencia continua y confiable.</strong></p>
+              </li>
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Mantener un código claro, bien organizado y fácil de mantener </strong>permite iterar más rápido y con menos riesgo. Este aprendizaje fue clave al enfrentar ajustes y cambios durante el proceso, ya que una base técnica limpia hace que mejorar la experiencia sea más sostenible a largo plazo.</p>
+              </li>
+            </ul> 
+      </div>
+    </section>
+
+    
+    <section class=" bg-gray-100">
+      <div class="max-w-3xl mx-auto md:py-20 py-10 ">
+        <div class="prose prose-lg max-w-none px-10 py-6 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-bold text-primary"> PRÓXIMO PROYECTO</p>
+        </div>
+        <div class="flex justify-center text-center px-10">
+           <a href="/proyectos/dealider" class="inline-flex items-centertransition-colors">
+            <img
+              src="/images/dealider/logoDea.png"
+              alt="image"
+              class=" md:w-[600px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        
+        <div class="prose prose-lg max-w-none px-10 flex justify-center text-center">
+          <p class="mt-4 md:mt-6 text-lg leading-7  font-light text-black">Aplicación movil</p>
+        </div>
+      </div>
+    </section>
+    <!-- Volver -->
+    <!-- <section class="py-16 bg-[#1DAE7F]">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-2xl font-bold text-black mb-6">Ver más proyectos</h3>
+        <a href="/#work" class="inline-flex items-center gap-2 px-8 py-4 bg-[#FDB913] text-black font-semibold rounded-full hover:bg-[#FDB913]/90 transition-colors">
+          Volver al portafolio
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path d="M15 3h6v6" />
+            <path d="M10 14L21 3" />
+          </svg>
+        </a>
+      </div>
+    </section> -->
+  </main>
+
+  <Footer />
+</Layout>

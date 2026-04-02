@@ -4,6 +4,7 @@ import Header from '../../components/Header.jsx';
 import Footer from '../../components/Footer.jsx';
 import { projectsData } from '../../lib/projects-data';
 import Button from "@/components/ui/button.jsx";
+import Carousel from "@/components/ui/Carousel.jsx"
 
 const slug = 'adryoBlog';
 const project = projectsData.find((p) => p.slug === slug);
@@ -22,6 +23,14 @@ const categoryLabel = (category) => {
     default: return category;
   }
 };
+
+
+const screens = [
+  "/images/blogAdryo/homeScreen.png",
+  "/images/blogAdryo/CategoryPage.png",
+  "/images/blogAdryo/ArticlePage.png",
+];
+
 ---
 
 <Layout>
@@ -178,47 +187,187 @@ const categoryLabel = (category) => {
         </div>
       </div>
     </section>
-    <!-- Imágenes adicionales -->
-    {project.images && project.images.length > 1 && (
-      <section class="py-16">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="grid md:grid-cols-2 gap-8">
-            {project.images.slice(1).map((img, index) => (
-              <div class="rounded-2xl overflow-hidden shadow-lg">
-                <img src={img || "/placeholder.svg"} alt={`${project.title} - Image ${index + 2}`} class="w-full h-auto" loading="lazy" />
-              </div>
-            ))}
+
+    <section class="w-full bg-foreground py-10 px-10 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl font-bold text-secondary">Una experiencia que orienta, no que abruma</p>
+    </section>
+
+    <section class="md:pt-16 md:pb-0 py-10 bg-gray-50">
+      <div class="max-w-4xl mx-auto md:px-24 px-6">
+        <div class=" grid md:flex md:justify-between md:gap-8 gap-4">
+          <div class="flex justify-center md:justify-start md:items-start">
+            <img
+              src="/images/paint.png"
+              alt="image"
+              class="max-w-[10rem] md:w-[100px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          
+          <div>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> El rediseño partió de armonizar la funcionalidad y el propósito de los componentes del blog con la identidad actual del producto, asegurando que todos respondieran a una experiencia coherente y fluida sobre la cual se construye el nuevo recorrido del usuario.</p>
           </div>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24">
+            <img
+              src="/images/Componentes.png"
+              alt="image"
+              class=" md:w-full h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
 
-    <!-- Resultados -->
-    {project.results?.length && (
-      <section class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-          <h2 class="text-4xl font-bold text-black mb-8">Resultados</h2>
-          <ul class="space-y-4">
-            {project.results.map((result) => (
-              <li class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#FDB913] flex items-center justify-center">
-                  <span class="text-black font-bold">✓</span>
-                </div>
-                <p class="text-gray-600 text-lg leading-relaxed pt-1">{result}</p>
-              </li>
-            ))}
-          </ul>
+    <section class="pt-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6 ">
+        <h2 class="text-4xl font-medium text-black mb-8  text-center">Evolución de la experiencia</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black"> Para entender el impacto del rediseño, es importante observar el cambio en la experiencia.</p>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
+    <section class="pb-20">
+      <Carousel client:load images={screens}  autoPlay={true} interval={6000}/>
+    </section>
+    
+    
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Mantente informado sobre el sector inmobiliario y explora más contenido de manera clara dentro del blog.</p>
+    </section>
 
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> ENTREGA</p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8  text-center">¿Cómo se transformó la experiencia del usuario en el blog?</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">El rediseño permitió resolver los principales puntos de fricción de los usuarios. El blog dejó de percibirse como un producto aislado y comenzó a integrarse de forma más natural con la identidad visual del producto principal, haciendo que la navegación, la exploración por categorías y el contenido fueran más claros.</p>
+        </div>
+        <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Además, esto permitió que los usuarios comprendan mejor dónde están y qué pueden explorar a continuación.  Como resultado, la experiencia del blog mejoro en términos de usabilidad y orientación, facilitando que los usuarios descubran y consuman contenido inmobiliario de manera más clara, ordenada y continua.</p>
+        </div>
+        <h2 class="text-4xl font-medium text-black mb-8 mt-12  text-center">Prototipo de alta fidelidad</h2>
+        <div class="flex justify-center mb-8">
+          <Button
+            variant="default"
+            onClick={() => { window.location.href = 'https://blog.adryo.com.mx'; }}
+            className="rounded-full px-12 py-3 text-lg"
+          >
+            Ver prototipo
+          </Button>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+            <img
+              src="/images/blogAdryo/prototipo.png"
+              alt="image"
+              class=" md:w-200 h-auto object-contain"
+              loading="lazy"
+            />
+    </div>
+
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">¿Qué hacemos ahora?</p>
+    </section>
+
+    <section class="md:pt-16 md:pb-0 py-10 bg-gray-50">
+      <div class="max-w-6xl mx-auto md:px-24 px-6">
+        <div class=" grid md:flex md:justify-between md:gap-8 gap-4">
+          <div class="flex justify-center md:justify-start md:items-start">
+            <img
+              src="/images/dev.png"
+              alt="image"
+              class=" md:w-[1500px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">Despliegue e integración</h3>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> Dada la magnitud del rediseño y la cantidad de componentes involucrados, el trabajo requirió una planificación cuidadosa más allá del diseño de la experiencia. El proceso incluyó el desarrollo del blog, la implementación de mejoras en la interfaz y la creación de plantillas de correo para los usuarios, asegurando coherencia con el recorrido y la identidad del producto.</p>
+            <p class="mt-6 text-lg leading-7  font-light text-black"> Ahora en mi rol de front-end desarrolle el proyecto de forma paralela durante casi dos meses en coordinación con el backend para validar que la experiencia funcionara de manera adecuada. Aunque el rediseño y la implementación técnica fueron completados, el despliegue final no pudo concluirse debido a procesos y decisiones internas del proyecto ajenas a la ejecución del diseño.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h3 class="text-3xl font-bold text-black mb-4">Próximos pasos</h3>
+          <ul class="list-disc pl-6 space-y-4"> 
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Sistema interno de gestión de contenido</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Durante el desarrollo del proyecto me di cuenta que no se tenia contemplado donde se crearían u editarian los artículos, por eso un sistema interno
+                    ayudaría a escalar el contenido y reducir la dependencia de procesos manuales.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Control de permisos y roles</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Para tener el sistema interno que getionara los artículos se deberan definir los roles para mantener flujos internos ordenados y asegurar
+                    la calidad del contenido publicado.
+                  </li>
+                </ul>
+              </li>
+            </ul> 
+      </div>
+    </section>
+    <section class="w-full bg-foreground py-2 flex justify-center text-center">
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h3 class="text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
+          <ul class="space-y-6"> 
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> Una vez más se demostro la importancía de investigar a fondo antes de tomar decisiones. Los problemas que se solucionaron en este proyecto surgieron de decisiones apresuradas e improvisaciones que con el tiempo, generaron fricción y tuvieron un impacto directamente en la experiencia del usuario. Reforzo la idea de <strong class="font-bold">validar y reflexionar antes de ejecutar</strong></p>
+              </li>
+
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black">Cuando una parte del producto se siente fuera de lugar o desconectada del resto, afecta la percepción de calidad y solidez de la marca. Integrar el blog al ecosistema principal no solo fue una mejora estética, sino una <strong class="font-bold"> decisión clave para generar una experiencia continua y confiable.</strong></p>
+              </li>
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Mantener un código claro, bien organizado y fácil de mantener </strong>permite iterar más rápido y con menos riesgo. Este aprendizaje fue clave al enfrentar ajustes y cambios durante el proceso, ya que una base técnica limpia hace que mejorar la experiencia sea más sostenible a largo plazo.</p>
+              </li>
+            </ul> 
+      </div>
+    </section>
+
+    
+    <section class=" bg-gray-100">
+      <div class="max-w-3xl mx-auto md:py-20 py-10 ">
+        <div class="prose prose-lg max-w-none px-10 py-6 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-bold text-primary"> PRÓXIMO PROYECTO</p>
+        </div>
+        <div class="flex justify-center text-center px-10">
+           <a href="/proyectos/dealider" class="inline-flex items-centertransition-colors">
+            <img
+              src="/images/dealider/logoDea.png"
+              alt="image"
+              class=" md:w-[600px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        
+        <div class="prose prose-lg max-w-none px-10 flex justify-center text-center">
+          <p class="mt-4 md:mt-6 text-lg leading-7  font-light text-black">Aplicación movil</p>
+        </div>
+      </div>
+    </section>
     <!-- Volver -->
-    <section class="py-16 bg-gray-50">
+    <!-- <section class="py-16 bg-[#1DAE7F]">
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h3 class="text-2xl font-bold text-black mb-6">Ver más proyectos</h3>
         <a href="/#work" class="inline-flex items-center gap-2 px-8 py-4 bg-[#FDB913] text-black font-semibold rounded-full hover:bg-[#FDB913]/90 transition-colors">
           Volver al portafolio
-          <!-- ExternalLink icon simple -->
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <path d="M15 3h6v6" />
@@ -226,7 +375,7 @@ const categoryLabel = (category) => {
           </svg>
         </a>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <Footer />

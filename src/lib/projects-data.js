@@ -66,16 +66,11 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     category: "Design + Dev",
     tags: ["Figma", "Astro", "React JS", "Tailwind CSS","+ 1"],
     tools: "Figma, Astro, React JS, Tailwind CSS, consumo de API para contenido dinámico",
-    role: "UX/UI Design + Front-end Development",
+    role: "UX/UI Designer + Front-end Development",
     year:"2025",
     challenge: "Mi reto fue convertir un blog básico en una experiencia moderna y coherente, con un diseño claro y un desarrollo técnico más eficiente y escalable.",
     solution:
       "Rediseñar el blog busca mejorar la usabilidad y facilitar que los usuarios exploren el contenido inmobiliario de forma simple, útil y coherente con la identidad visual del producto.",
-    results: [
-      "Tiempo de carga inferior a 2 segundos",
-      "100/100 en Lighthouse Performance",
-      "Experiencia visual inmersiva",
-    ],
     images: [
       "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=800&q=80",
       "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=800&q=80",
@@ -85,24 +80,20 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     slug: "dealider",
     title: "Dealider App",
     shortDescription:
-      "Aplicación web completa para gestión de reservas. Diseño de interfaz y desarrollo del front-end.",
-    description: "Aplicación web completa para gestión de reservas. Diseño de interfaz y desarrollo del front-end.",
-    fullDescription: `Sistema de reservas completo para un negocio de servicios. Incluye calendario interactivo, gestión de disponibilidad, y notificaciones en tiempo real.`,
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
+      "Adaptación de un sistema CRM web a una aplicación móvil, enfocada en facilitar el acceso a la información clave y procesos comerciales.",
+    description: "Adaptación de un sistema CRM web a una aplicación móvil, enfocada en facilitar el acceso a la información clave y procesos comerciales.",
+    fullDescription: `Dealider es un CRM diseñado para apoyar a la empresas en la gestión de sus relaciones con los clientes. La plataforma centraliza la información comercial y permite dar seguimiento a sus procesos desde un solo lugar. En este proyecto participé en la adaptación de la versión web a una experiencia móvil, enfocada principalmente en el uso diario de los vendedores y en el acceso rápido a información clave desde dispositivos móviles.`,
+    image: "/images/dealider/deaCover.png",
     icon: { letter: "B", bg: "#10B981" },
-    category: "Design + Dev",
-    tags: ["React", "Node.js", "MongoDB"],
+    category: "Design",
+    tags: ["Figma", "FigJam", "Notion", "+ 1"],
+    tools: "Figma, FigJam, Notion, Google Meet",
     year: "2024",
-    role: "Full-stack Designer & Developer",
+    role: "UX/UI Designer ",
     challenge:
-      "Crear un sistema de reservas intuitivo que maneje múltiples servicios, horarios y usuarios simultáneamente.",
+      "El reto principal fue transformar una experiencia pensada para escritorio en una versión móvil clara e intuitiva, simplificando flujos y priorizando la información sin perder coherencia con el producto original.",
     solution:
-      "Diseñé una interfaz de calendario interactivo con vista semanal y mensual, implementé un sistema de notificaciones en tiempo real y sincronización con Google Calendar.",
-    results: [
-      "500+ reservas mensuales",
-      "Reducción del 80% en conflictos de horarios",
-      "Automatización completa del proceso de reserva",
-    ],
+      "Adaptar el CRM web de Dealider a una experiencia móvil sencilla y práctica, enfocada en el uso por parte de vendedores, permitiéndoles consultar y gestionar información clave de forma rápida desde dispositivos móviles.",
     images: [
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",

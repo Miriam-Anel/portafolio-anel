@@ -203,3 +203,55 @@ h1, h2, h3, h4 {
 .shape-arch {
   border-radius: 100px 100px 0 0;
 }
+
+
+.carousel-wrapper {
+  margin: 2rem 0;
+}
+
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  gap: 1rem;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+.custom-bullet {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.custom-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #ef4444; /* rojo */
+  clip-path: polygon(
+    50% 0%,
+    65% 35%,
+    100% 50%,
+    65% 65%,
+    50% 100%,
+    35% 65%,
+    0% 50%,
+    35% 35%
+  );
+}
