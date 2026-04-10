@@ -56,14 +56,15 @@ const screens = [
           </div>
         </div>
         <div class="flex justify-center mb-8">
-          <Button
-            variant="default"
-            size="lg"
-            onClick={() => { window.location.href = 'https://blog.adryo.com.mx'; }}
-            className="rounded-full px-8"
-          >
-            Ver prototipo
-          </Button>
+          <a
+              href="https://www.figma.com/proto/QUi9jd00PY6pT7sACz8RPD/AppDealider?page-id=1454%3A658&node-id=1454-3383&viewport=2010%2C255%2C0.18&t=05b3u69LIr0fcsl6-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1454%3A3383&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="rounded-full px-8 cursor-pointer">
+                Ver prototipo
+              </Button>
+            </a>
         </div>
 
         <!-- Imagen principal -->
@@ -105,7 +106,7 @@ const screens = [
     <!-- Descripción -->
     <section class="py-8 bg-white">
       <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-black mb-8">Descripción del proyecto</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">Descripción del proyecto</h2>
         <div class="prose prose-lg max-w-none">
           <p class="text-gray-600 leading-relaxed text-lg whitespace-pre-line">{project.fullDescription}</p>
         </div>
@@ -131,7 +132,7 @@ const screens = [
    
 
     <section class="w-full bg-foreground py-10 px-10 flex justify-center text-center">
-      <p class="text-3xl md:text-4xl font-bold text-secondary">De web a mobile</p>
+      <p class="text-3xl md:text-3xl md:text-4xl font-bold text-secondary">De web a mobile</p>
     </section>
 
     <section class="md:pt-12 md:pb-0 py-10 bg-gray-50">
@@ -139,7 +140,7 @@ const screens = [
         <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
           <p class="mt-2 text-lg leading-7  font-medium text-primary"> DEFINIR </p>
         </div>
-        <h2 class="text-4xl font-medium text-black mb-8 px-10 text-center">Priorizando funcionalidades</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8 px-10 text-center">Priorizando funcionalidades</h2>
         <div class="prose prose-lg max-w-none">
           <p class="mt-2 text-lg leading-7  font-light text-black"> Dado que la aplicación sera utilizada principalmente por <strong class="font-bold">vendedores</strong>, fue necesario evaluar qué funcionalidades realmente apoyaban su operación diaria.
 La priorización <strong class="font-bold">se enfocó en acciones recurrentes y de consulta rápida</strong>, mientras que funciones de configuración y administración permanecieron en la versión web.</p>
@@ -157,7 +158,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
 
     <section class="py-8 bg-white">
       <div class="max-w-4xl mx-auto px-6 ">
-        <h2 class="text-4xl font-medium text-black mb-8  text-center">Analizando el mercado</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Analizando el mercado</h2>
         <div class="prose prose-lg max-w-none px-0 md:px-10 ">
           <p class="mt-2 text-lg leading-7  font-light text-black">Dado que las plataformas de escritorio no se adaptan directamente a mobile, comparé tres aplicaciones orientadas a vendedores que resuelven tareas comerciales desde dispositivos móviles. El objetivo fue entender cómo adaptan funcionalidades originalmente complejas a pantallas pequeñas tales como:</p>
           <ul class="list-disc md:pl-10 pl-6 space-y-1 text-left mt-5"> 
@@ -242,7 +243,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
     
     
     <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
-      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Interacciones más rápidas y enfocadas</p>
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Interacciones más rápidas y enfocadas</p>
     </section>
 
     <section class="pt-8 bg-white">
@@ -250,7 +251,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
           <p class="mt-2 text-lg leading-7  font-medium text-primary"> Desarrollo</p>
         </div>
-        <h2 class="text-4xl font-medium text-black mb-8  text-center">¿Cómo se organiza la app en mobile?</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">¿Cómo se organiza la app en mobile?</h2>
         <div class="prose prose-lg max-w-none px-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">Con base en la investigación y la priorización de funcionalidades, se reorganizó la estructura de la aplicación para mobile.</p>
         </div>
@@ -267,7 +268,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
 
      <section class="pt-1 bg-white">
       <div class="max-w-3xl mx-auto px-6 ">
-        <h2 class="text-4xl font-medium text-black mb-8 mt-12  text-center">Flujos clave para el vendedor</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8 mt-12  text-center">Flujos clave para el vendedor</h2>
         <div class="prose prose-lg max-w-none px-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">Los flujos mobile se adaptaron al ritmo de trabajo del vendedor, priorizando acciones rápidas, menos fricción y una interacción más directa.</p>
         </div>
@@ -278,12 +279,12 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
     </section>
 
     <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
-      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Dandole vida a la app</p>
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Dandole vida a la app</p>
     </section>
 
     <section class="pt-8 bg-white">
       <div class="max-w-3xl mx-auto px-6 ">
-        <h2 class="text-4xl font-medium text-black my-8 text-center">Wireframes</h2>
+        <h2 class="text-3xl md:text-3xl md:text-4xl font-medium text-black my-8 text-center">Wireframes</h2>
         <div class="prose prose-lg max-w-none px-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">Los wireframes permitieron aterrizar la experiencia mobile, enfocándose en la distribución del contenido, la claridad de las acciones y la simplicidad de cada pantalla.</p>
         </div>
@@ -303,7 +304,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
 
     <section class="pt-8 bg-white">
       <div class="max-w-4xl mx-auto px-6 ">
-        <div class=" grid md:flex justify-center items-center md:gap-3 gap-4">
+        <div class=" flex justify-center items-center md:gap-3 gap-4">
           <div class="flex justify-center md:justify-start md:items-start">
             <img
               src="/images/paint.png"
@@ -312,7 +313,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
               loading="lazy"
             />
           </div>
-          <h2 class="text-4xl font-medium text-black my-8">Elementos clave de la interfaz</h2>
+          <h2 class="text-3xl md:text-3xl md:text-4xl font-medium text-black my-8">Elementos clave de la interfaz</h2>
         </div>
         <div class="prose prose-lg max-w-none px-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">En esta etapa, el diseño empezó a tomar forma para mobile. A partir de los wireframes y en conjunto con la diseñadora, se trabajó el estilo visual de la plataforma, estableciento una base de colores y lineamientos visuales. Con esta base se construyeron los componentes, logrando una interfaz clara, ligera y fácil de reconocer para el uso diario de los vendedores.</p>
@@ -329,7 +330,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
     </div>
 
     <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
-      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Da seguimiento a tus leads y oportunidades, estés donde estés.</p>
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Da seguimiento a tus leads y oportunidades, estés donde estés.</p>
     </section>
 
     <section class="pt-8 bg-white">
@@ -337,41 +338,41 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
           <p class="mt-2 text-lg leading-7  font-medium text-primary"> ENTREGA</p>
         </div>
-        <h2 class="text-4xl font-medium text-black mb-8  text-center">¿Cómo mejora Dealider móvil la experiencia de los vendedores?</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">¿Cómo mejora Dealider móvil la experiencia de los vendedores?</h2>
         <div class="prose prose-lg max-w-none px-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">La versión móvil de Dealider lleva el CRM a una experiencia diseñada para acompañar a los vendedores en su día a día, permitiéndoles gestionar leads, dar seguimiento a oportunidades y consultar información clave desde cualquier lugar. </p>
         </div>
         <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
           <p class="mt-2 text-lg leading-7  font-light text-black">La navegación y las acciones clave están optimizadas,  reduciendo fricción y facilitando el avance de cada venta sin interrupciones.</p>
         </div>
-        <h2 class="text-4xl font-medium text-black mb-8 mt-12  text-center">Prototipo de alta fidelidad</h2>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8 mt-12  text-center">Prototipo de alta fidelidad</h2>
         <div class="flex justify-center mb-8">
-          <Button
-            variant="default"
-            onClick={() => {
-              window.open(
-                'https://www.figma.com/proto/QUi9jd00PY6pT7sACz8RPD/AppDealider?page-id=1454%3A658&node-id=1454-3338&viewport=2010%2C255%2C0.18&t=05b3u69LIr0fcsl6-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1454%3A3383&show-proto-sidebar=1',
-                '_blank'
-              );
-            }}
-            className="rounded-full px-12 py-3 text-lg"
-          >
-            Ver prototipo
-          </Button>
+          <a
+              href="https://www.figma.com/proto/QUi9jd00PY6pT7sACz8RPD/AppDealider?page-id=1454%3A658&node-id=1454-3383&viewport=2010%2C255%2C0.18&t=05b3u69LIr0fcsl6-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1454%3A3383&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="rounded-full px-12 py-3 text-lg cursor-pointer">
+                Ver prototipo
+              </Button>
+            </a>
         </div>
       </div>
     </section>
     <div class="flex justify-center px-6 md:px-24 my-10">
-            <img
-              src="/images/blogAdryo/prototipo.png"
-              alt="image"
-              class=" md:w-200 h-auto object-contain"
-              loading="lazy"
-            />
+      <video
+        src="/images/dealider/DealiderVideo.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-80 max-w-sm mx-auto rounded-lg"
+      ></video>
+
     </div>
 
     <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
-      <p class="text-3xl md:text-4xl md:leading-13 font-bold text-secondary">¿Qué hacemos ahora?</p>
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">¿Qué hacemos ahora?</p>
     </section>
 
     <section class="md:pt-16 md:pb-0 py-10 bg-gray-50">
@@ -425,7 +426,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
 
     <section class="py-20 bg-white">
       <div class="max-w-3xl mx-auto px-6 ">
-        <h3 class="text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
+        <h3 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
           <ul class="space-y-6"> 
               <li class="custom-bullet">
                 <p class="text-lg leading-7  font-light text-black"> Una vez más se demostro la importancía de investigar a fondo antes de tomar decisiones. Los problemas que se solucionaron en este proyecto surgieron de decisiones apresuradas e improvisaciones que con el tiempo, generaron fricción y tuvieron un impacto directamente en la experiencia del usuario. Reforzo la idea de <strong class="font-bold">validar y reflexionar antes de ejecutar</strong></p>
