@@ -51,7 +51,7 @@ const screens = [
 
         <div class="flex items-center gap-6 mb-4">
           <div class="flex flex-wrap items-center justify-center " >
-            <h1 class="text-5xl md:text-6xl font-bold text-black mb-4">{project.title}</h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-black mb-4">{project.title}</h1>
             <p class="text-xl text-gray-600 leading-relaxed text-center">{project.description}</p>
           </div>
         </div>
@@ -377,20 +377,19 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
 
     <section class="md:pt-16 md:pb-0 py-10 bg-gray-50">
       <div class="max-w-6xl mx-auto md:px-24 px-6">
-        <div class=" grid md:flex md:justify-between md:gap-8 gap-4">
-          <div class="flex justify-center md:justify-start md:items-start">
+        <div class=" grid md:gap-8 gap-4">
+          
+          <div class="max-w-3xl mx-auto px-6 ">
+            <h3 class="text-3xl font-bold text-black mb-4">Despliegue</h3>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> Tras finalizar el diseño y desarrollo de la aplicación, esta fue desplegada exitosamente en Play Store y App Store y se encuentra disponible para todos los usuarios.</p>
+          </div>
+          <div class="flex justify-center ">
             <img
-              src="/images/dev.png"
+              src="/images/dealider/Store.png"
               alt="image"
-              class=" md:w-[1500px] w-full h-auto object-contain"
+              class=" md:w-150 w-full h-auto object-contain"
               loading="lazy"
             />
-          </div>
-          
-          <div>
-            <h3 class="text-3xl font-bold text-black mb-4">Despliegue e integración</h3>
-            <p class="mt-2 text-lg leading-7  font-light text-black"> Dada la magnitud del rediseño y la cantidad de componentes involucrados, el trabajo requirió una planificación cuidadosa más allá del diseño de la experiencia. El proceso incluyó el desarrollo del blog, la implementación de mejoras en la interfaz y la creación de plantillas de correo para los usuarios, asegurando coherencia con el recorrido y la identidad del producto.</p>
-            <p class="mt-6 text-lg leading-7  font-light text-black"> Ahora en mi rol de front-end desarrolle el proyecto de forma paralela durante casi dos meses en coordinación con el backend para validar que la experiencia funcionara de manera adecuada. Aunque el rediseño y la implementación técnica fueron completados, el despliegue final no pudo concluirse debido a procesos y decisiones internas del proyecto ajenas a la ejecución del diseño.</p>
           </div>
         </div>
       </div>
@@ -400,21 +399,22 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         <h3 class="text-3xl font-bold text-black mb-4">Próximos pasos</h3>
           <ul class="list-disc pl-6 space-y-4"> 
               <li>
-                <p class="text-lg leading-7  font-light text-black">Sistema interno de gestión de contenido</p>
-                <ul class="list-[circle] pl-6 mt-2">
+                <p class="text-lg leading-7  font-light text-black">Automatizar el primer contacto con leads</p>
+                <ul class="list-[circle] pl-6 mt-2 space-y-2">
                   <li class="text-lg leading-7  font-light text-black">
-                    Durante el desarrollo del proyecto me di cuenta que no se tenia contemplado donde se crearían u editarian los artículos, por eso un sistema interno
-                    ayudaría a escalar el contenido y reducir la dependencia de procesos manuales.
+                    Para los vendedores, la rapidez en el contacto es clave para concretar una venta. Actualmente, este proceso aún tiene fricción dentro del CRM.
+                  </li>
+                  <li class="text-lg leading-7  font-light text-black">
+                   Integrar el CEM con el CRM permitirá automatizar las conversaciones iniciales con los leads, asegurando respuestas inmediatas y facilitando una experiencia más fluida desde el primer contacto.
                   </li>
                 </ul>
               </li>
 
               <li>
-                <p class="text-lg leading-7  font-light text-black">Control de permisos y roles</p>
+                <p class="text-lg leading-7  font-light text-black">Perfilador con IA</p>
                 <ul class="list-[circle] pl-6 mt-2">
                   <li class="text-lg leading-7  font-light text-black">
-                    Para tener el sistema interno que getionara los artículos se deberan definir los roles para mantener flujos internos ordenados y asegurar
-                    la calidad del contenido publicado.
+                    Para apoyar a los vendedores en Dealider, un asistente con IA podrá iniciar el contacto con el lead y recolectar información clave. Con este contexto, el vendedor podrá unirse a la conversación en el momento adecuado y ofrecer una atención más personalizada.
                   </li>
                 </ul>
               </li>
@@ -429,15 +429,15 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         <h3 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
           <ul class="space-y-6"> 
               <li class="custom-bullet">
-                <p class="text-lg leading-7  font-light text-black"> Una vez más se demostro la importancía de investigar a fondo antes de tomar decisiones. Los problemas que se solucionaron en este proyecto surgieron de decisiones apresuradas e improvisaciones que con el tiempo, generaron fricción y tuvieron un impacto directamente en la experiencia del usuario. Reforzo la idea de <strong class="font-bold">validar y reflexionar antes de ejecutar</strong></p>
-              </li>
-
-              <li class="custom-bullet">
-                <p class="text-lg leading-7  font-light text-black">Cuando una parte del producto se siente fuera de lugar o desconectada del resto, afecta la percepción de calidad y solidez de la marca. Integrar el blog al ecosistema principal no solo fue una mejora estética, sino una <strong class="font-bold"> decisión clave para generar una experiencia continua y confiable.</strong></p>
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Tenía más suposiciones de las que pensaba.</strong> Al inicio asumí cómo debía funcionar la experiencia, pero solo al observar y entender a los vendedores confirmé que la experiencia debía adaptarse a su  <strong class="font-bold">ritmo de trabajo, </strong>y no al revés.</p>
               </li>
               <li class="custom-bullet">
-                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Mantener un código claro, bien organizado y fácil de mantener </strong>permite iterar más rápido y con menos riesgo. Este aprendizaje fue clave al enfrentar ajustes y cambios durante el proceso, ya que una base técnica limpia hace que mejorar la experiencia sea más sostenible a largo plazo.</p>
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Priorizar es entender lo que realmente necesita el usuario.</strong> No todo lo que se puede mostrar aporta valor. En muchos casos, <strong class="font-bold">menos es más,</strong> y eliminar pasos o información innecesaria mejora significativamente la experiencia.</p>
               </li>
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"><strong class="font-bold">Diseñar para mobile cambia completamente la forma de pensar una interfaz.</strong>  El espacio es limitado y obliga a tomar decisiones más conscientes sobre <strong class="font-bold">jerarquía, legibilidad y accesibilidad, </strong>algo que no se enfrenta de la misma forma en escritorio.</p>
+              </li>
+              
             </ul> 
       </div>
     </section>
@@ -451,7 +451,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         <div class="flex justify-center text-center px-10">
            <a href="/proyectos/dealider" class="inline-flex items-centertransition-colors">
             <img
-              src="/images/dealider/logoDea.png"
+              src="/images/email/EmailLogo.png"
               alt="image"
               class=" md:w-[600px] w-full h-auto object-contain"
               loading="lazy"
@@ -460,7 +460,7 @@ La priorización <strong class="font-bold">se enfocó en acciones recurrentes y 
         </div>
         
         <div class="prose prose-lg max-w-none px-10 flex justify-center text-center">
-          <p class="mt-4 md:mt-6 text-lg leading-7  font-light text-black">Aplicación movil</p>
+          <p class="mt-4 md:mt-6 text-lg leading-7  font-light text-black">Diseño y desarrollo</p>
         </div>
       </div>
     </section>
