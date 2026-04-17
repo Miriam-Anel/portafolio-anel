@@ -103,20 +103,21 @@ El proceso comenzó con una investigación exhaustiva de usuarios para entender 
     slug: "emailTemplates",
     title: "Email templates",
     shortDescription:
-      "End to end application for Edtech industry. A platform where to exchange knowledge for other knowledge.",
+      "Diseño y desarrollo de templates de correo para múltiples aplicaciones, enfocados en comunicación clara y consistente.",
     description:
-      "End to end application for Edtech industry. A platform where to exchange knowledge for other knowledge.",
-    fullDescription: `Knowlex es una plataforma innovadora que permite a los usuarios intercambiar conocimientos y habilidades. El proyecto requería una arquitectura compleja para manejar perfiles de usuario, matching de habilidades, y comunicación en tiempo real.`,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+      "Diseño y desarrollo de templates de correo para múltiples aplicaciones, enfocados en comunicación clara y consistente.",
+    fullDescription: `Un template de correo es una plantilla que estandariza la comunicación entre una aplicación y sus usuarios. En este proyecto diseñé y desarrollé templates de correo desde cero para distintas aplicaciones, cuidando el diseño visual, el copy y su correcta implementación para garantizar claridad y consistencia en diferentes dispositivos. `,
+    image: "/images/email/Templates.png",
     icon: { letter: "K", bg: "#1E3A8A" },
     category: "Design + Dev",
-    tags: ["UX Research", "React", "Firebase"],
-    year: "2023",
-    role: "Product Designer & Lead Developer",
+    tags: ["Figma", "HTML", "Postman", "+3"],
+    tools: "Figma, HTML, Postman, CSS, UX Writing, Responsive Design",
+    year: "2024-2026",
+    role: "UX / UI Designer & Front‑End Developer",
     challenge:
-      "Diseñar un sistema de matching que conecte personas con habilidades complementarias de manera efectiva.",
+      "Asegurar que los templates funcionaran correctamente en distintos clientes de correo y tamaños de pantalla, sin perder claridad visual ni jerarquía en la información.",
     solution:
-      "Creé un algoritmo de matching basado en intereses, disponibilidad y nivel de habilidad. Diseñé una interfaz intuitiva para buscar y conectar con otros usuarios.",
+      "Crear correos claros, consistentes y funcionales, que acompañaran los flujos clave del producto y mantuvieran una experiencia coherente fuera de la plataforma.",
     results: ["1000+ usuarios activos en 3 meses", "500+ intercambios exitosos", "Tasa de satisfacción del 92%"],
     images: [
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",

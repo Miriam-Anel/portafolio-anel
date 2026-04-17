@@ -1,0 +1,408 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
+import { projectsData } from '../../lib/projects-data';
+import Button from "@/components/ui/button.jsx";
+import Carousel from "@/components/ui/Carousel.jsx"
+
+const slug = 'emailTemplates';
+const project = projectsData.find((p) => p.slug === slug);
+
+if (!project) {
+  return Astro.redirect('/');
+}
+
+
+// Utilidades
+const categoryLabel = (category) => {
+  switch (category) {
+    case 'ux-ui': return 'Diseño';
+    case 'frontend': return 'Código';
+    case 'both': return 'Diseño + Código';
+    default: return category;
+  }
+};
+
+
+const screensW = [
+  "/images/email/WBlog.png",
+  "/images/email/WTicky.png",
+  "/images/email/WXp.png",
+];
+const screens = [
+  "/images/email/CXpe.png",
+  "/images/email/CAdryo.png",
+];
+
+---
+
+<Layout>
+  <!-- Header (hidratar si tiene interactividad) -->
+  <Header client:visible />
+
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <a href="/#work" class="inline-flex items-center gap-2 text-gray-600 hover:text-black mb-8 transition-colors">
+          <!-- ArrowLeft icon simple -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+          Volver a proyectos
+        </a>
+
+        <div class="flex items-center gap-6 mb-4">
+          <div class="flex flex-wrap items-center justify-center " >
+            <h1 class="text-4xl md:text-6xl font-bold text-black mb-4">{project.title}</h1>
+            <p class="text-xl text-gray-600 leading-relaxed text-center">{project.description}</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-8">
+          <a
+              href="https://www.figma.com/proto/OEIhOcHwUTbsdrxLl9LUUC/Templates?node-id=4089-9415&p=f&viewport=-276%2C-106%2C0.09&t=Aekx9CpXGev6PFG5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4089%3A9415&page-id=176%3A2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="rounded-full px-8 cursor-pointer">
+                Ver simulador
+              </Button>
+            </a>
+        </div>
+
+        <!-- Imagen principal -->
+    <section class="py-8 mb-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img src={project.image || "/placeholder.svg"} alt={project.title} class="w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+    </section>
+    
+        <!-- Chips -->
+        <!-- {project.tags?.length && (
+          <div class="flex flex-wrap justify-center gap-4 mb-8 mt-8">
+            {project.tags.map((tag) => (
+              <span class="px-5 py-2 bg-white border border-gray-200 text-gray-800 font-medium rounded-full">{tag}</span>
+            ))}
+          </div>
+        )} -->
+
+        <!-- Meta -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm px-16">
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Año</p>
+            <p class="font-semibold text-black text-base">{project.year}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Rol</p>
+            <p class="font-semibold text-black text-base">{project.role}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 mb-1 text-base">Herramientas</p>
+            <p class="font-semibold text-black text-base">{project.tools}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descripción -->
+    <section class="py-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">Descripción del proyecto</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-600 leading-relaxed text-lg whitespace-pre-line">{project.fullDescription}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge & Solution -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">El desafío</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.challenge}</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-4">Objetivo / Meta</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">{project.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <section class="w-full bg-foreground py-10 px-10 flex justify-center text-center">
+      <p class="text-3xl md:text-3xl md:text-4xl font-bold text-secondary">El correo como punto de contacto con el usuario</p>
+    </section>
+
+    <section class="md:pt-12 md:pb-0 py-10 bg-white">
+      <div class="max-w-4xl mx-auto md:px-24 px-6">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> INVESTIGAR </p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8 px-10 text-center">¿Qué hace que un correo realmente se lea?</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="mt-2 text-lg leading-7  font-light text-black"> Antes de diseñar los templates, fue necesario entender qué elementos influyen en que un correo sea <strong class="font-bold">abierto, leído y comprendido en pocos segundos.</strong></p>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <p class="mt-2 text-lg leading-7  font-light text-black"> Para este análisis, se tomó como referencia una plantilla de correo de Spotify, con el objetivo de identificar buenas prácticas en estructura, jerarquía visual y claridad del mensaje.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white max-w-6xl mx-auto px-6">
+      <div class="grid gap-12 md:grid-cols-2 items-start">
+        <div>
+          <ul class="list-disc pl-6 space-y-4"> 
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Remitente</p>
+                <ul class="list-[circle] pl-6 mt-2 space-y-2">
+                  <li class="text-base leading-7  font-light text-black ">
+                    Un remitente claro y reconocible genera confianza desde el primer momento y facilita que el correo sea abierto.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Asunto</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    El asunto debe responder rápidamente a una pregunta clave: ¿por qué debería abrir este correo? Anticipar el valor del contenido aumenta la probabilidad de apertura.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Headlines</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Los titulares ayudan a comunicar el mensaje principal incluso a quienes solo escanean el correo.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Contenido</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Los correos se leen en pocos segundos, por lo que el mensaje debe ser breve, claro y fácil de entender.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Jerarquía</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Organizar la información por importancia permite comprender el contenido con un primer vistazo.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Color</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    El color debe apoyar la lectura y no interferir con la legibilidad del texto.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Imagenes</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    Las imágenes deben complementar el mensaje y estar optimizadas para no afectar la carga del correo.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="text-lg leading-7  font-light text-black">Responsive</p>
+                <ul class="list-[circle] pl-6 mt-2">
+                  <li class="text-lg leading-7  font-light text-black">
+                    El diseño debe adaptarse correctamente a distintos dispositivos, especialmente mobile.
+                  </li>
+                </ul>
+              </li>
+
+            </ul> 
+        </div>
+
+        <div class="flex justify-center md:justify-end md:items-center  md:h-full">
+          <img
+            src="/images/email/Example.png"
+            alt="image"
+            class="w-full h-auto object-contain"
+            loading="lazy"
+          />  
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">Traduciendo investigación en decisiones</p>
+    </section>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> DEFINIR</p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Definiendo la estructura del template</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">A partir de la investigación, se definieron las estructuras base de los templates, que posteriormente se tradujo en <strong class="font-bold">wireframes</strong> para validar jerarquía, contenido y lectura antes del diseño visual y la implementación.</p>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <Carousel client:load images={screensW}  autoPlay={true} interval={7000}/>
+    </section>
+
+     <section class="pt-8 bg-white">
+      <div class="max-w-4xl mx-auto px-6 ">
+        <div class=" flex justify-center items-center md:gap-3 gap-4">
+          <div class="flex justify-center md:justify-start md:items-start">
+            <img
+              src="/images/paint.png"
+              alt="image"
+              class="max-w-[10rem] md:w-[50px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          <h2 class="text-3xl md:text-3xl md:text-4xl font-medium text-black my-8">Elementos clave del template</h2>
+        </div>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">En esta etapa se definió el estilo visual de los templates de correo a partir de los wireframes y la identidad de cada producto. Con base en estas decisiones, se construyeron los componentes necesarios para lograr correos claros y consistentes.</p>
+        </div>
+      </div>
+    </section>
+    <section class="py-20">
+      <Carousel client:load images={screens}  autoPlay={false} interval={0}/>
+    </section>
+
+    <section class="w-full bg-foreground py-2 flex justify-center text-center">
+    </section>
+
+    <section class="pt-8 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <div class="prose prose-lg max-w-none px-10 py-4 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-medium text-primary"> RESULTADO</p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Templates de correo diseñados para distintos contextos</h2>
+        <div class="prose prose-lg max-w-none px-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">A partir de la definición del estilo visual de cada producto, se diseñaron y construyeron los templates de correo finales. Cada template responde a su contexto específico, manteniendo claridad en el mensaje y una estructura pensada para una lectura rápida.</p>
+        </div>
+        <div class="prose prose-lg max-w-none px-10 pt-2  pb-10">
+          <p class="mt-2 text-lg leading-7  font-light text-black">Para presentarlos en un contexto más real, se simuló la lectura e interacción con los distintos templates dentro de un entorno de correo tipo Gmail, utilizando un kit de componentes como base.</p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-black mb-8 mt-12  text-center">Vista de correos</h2>
+        <div class="flex justify-center mb-8">
+          <a
+              href="https://www.figma.com/proto/OEIhOcHwUTbsdrxLl9LUUC/Templates?node-id=4089-9415&p=f&viewport=-276%2C-106%2C0.09&t=Aekx9CpXGev6PFG5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4089%3A9415&page-id=176%3A2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="rounded-full px-12 py-3 text-lg cursor-pointer">
+                Ver simulación
+              </Button>
+            </a>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-center px-6 md:px-24 my-10">
+      <img
+        src="/images/email/Simulador.png"
+        alt="image"
+        class=" md:w-200 w-full h-auto object-contain"
+        loading="lazy"
+      />
+    </div>
+
+    <section class="w-full bg-foreground py-10 px-10 md:px-50 flex justify-center text-center">
+      <p class="text-3xl md:text-3xl md:text-4xl md:leading-13 font-bold text-secondary">¿Qué hacemos ahora?</p>
+    </section>
+
+    <section class="md:py-16 py-10 bg-gray-50">
+      <div class="max-w-6xl mx-auto md:px-24 px-6">
+        <div class=" md:grid md:grid-cols-2 md:gap-8 gap-4">
+
+          <div class="flex justify-center ">
+            <img
+              src="/images/dev.png"
+              alt="image"
+              class=" md:w-80 w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          <div class="max-w-3xl mx-auto px-6 ">
+            <h3 class="text-3xl font-bold text-black mb-4">Despliegue</h3>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> Con el diseño definido, el siguiente paso fue <strong class="font-bold">programar los templates de correo</strong> y <strong class="font-bold">publicarlos en Postman,</strong> dejándolos listos para su consumo por parte del backend.</p>
+            <p class="mt-2 text-lg leading-7  font-light text-black"> Esto permite que los templates puedan integrarse directamente a la plataforma, conectándose a los flujos correspondientes y volviéndose funcionales dentro del producto.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="w-full bg-foreground py-2 flex justify-center text-center">
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-6 ">
+        <h3 class="text-3xl md:text-4xl font-medium text-black mb-8  text-center">Lo que aprendí</h3>
+          <ul class="space-y-6"> 
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">Menos diseño, más claridad.</strong> En email, simplificar la estructura y reducir elementos visuales no solo mejora la lectura, también ayuda a evitar errores de visualización en clientes de correo más limitados.</p>
+              </li>
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"> <strong class="font-bold">No todos los usuarios usan las mismas herramientas.</strong>  Diseñar templates de correo implica considerar que existen distintos clientes de correo y versiones desactualizadas, lo que obliga a tomar decisiones más conservadoras y pensadas en compatibilidad.</p>
+              </li>
+              <li class="custom-bullet">
+                <p class="text-lg leading-7  font-light text-black"><strong class="font-bold">Probar en contexto real es clave.</strong> Los conflictos de visualización solo se detectaron cuando los templates comenzaron a usarse con usuarios reales, reforzando la importancia de validar más allá del entorno de diseño.</p>
+              </li>
+              
+            </ul> 
+      </div>
+    </section>
+
+    
+    <section class=" bg-gray-100">
+      <div class="max-w-3xl mx-auto md:py-20 py-10 ">
+        <div class="prose prose-lg max-w-none px-10 py-6 flex text-center justify-center">
+          <p class="mt-2 text-lg leading-7  font-bold text-primary"> PRÓXIMO PROYECTO</p>
+        </div>
+        <div class="flex justify-center text-center px-10">
+           <a href="/proyectos/dealider" class="inline-flex items-centertransition-colors">
+            <img
+              src="/images/email/EmailLogo.png"
+              alt="image"
+              class=" md:w-[600px] w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        
+        <div class="prose prose-lg max-w-none px-10 flex justify-center text-center">
+          <p class="mt-4 md:mt-6 text-lg leading-7  font-light text-black">Diseño y desarrollo</p>
+        </div>
+      </div>
+    </section>
+    <!-- Volver -->
+    <!-- <section class="py-16 bg-[#1DAE7F]">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-2xl font-bold text-black mb-6">Ver más proyectos</h3>
+        <a href="/#work" class="inline-flex items-center gap-2 px-8 py-4 bg-[#FDB913] text-black font-semibold rounded-full hover:bg-[#FDB913]/90 transition-colors">
+          Volver al portafolio
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path d="M15 3h6v6" />
+            <path d="M10 14L21 3" />
+          </svg>
+        </a>
+      </div>
+    </section> -->
+  </main>
+
+  <Footer />
+</Layout>
